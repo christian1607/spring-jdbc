@@ -1,0 +1,102 @@
+
+spring:
+  profiles:
+    active: @spring.profiles.active@
+---
+spring:
+ profiles: dev-local
+ application:
+    name: solben-backend
+ datasource:
+    url: jdbc:oracle:thin:@dboracleaunadev.cvpn2k1pcgnm.us-east-2.rds.amazonaws.com:1521:AUNA
+    username: ONTPAC
+    password: ONTPAC
+    #jndi-name: java:/DEV-OracleDS
+    #driver-class-name: oracle.jdbc.driver.OracleDriver
+server:
+  port: ${vcap.application.port:8090}
+  contextPath: /solben
+  session:
+    cookie:
+      name: UISESSION
+
+oncosys:
+   oncoAfiliado: http://10.41.190.223:8080/oncosys-backend/afiliado
+   oncoGenerico: http://10.41.190.223:8080/oncosys-backend/generico
+   oncoDiagnostico: http://10.41.190.223:8080/oncosys-backend/diagnostico
+   oncoMedico: http://10.41.190.223:8080/oncosys-backend/medico
+portalComun:
+   oauth2: http://52.206.87.238:8080/oauth2-server/oauth
+
+
+auna:
+  fcompleja:
+    datasource:
+
+      #jndi-name: java:/farmaciaComplejaDS
+      #driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@dboracleaunadev.cvpn2k1pcgnm.us-east-2.rds.amazonaws.com:1521:AUNA
+      username: ONTPFC
+      password: ONTPFC
+
+---
+
+spring:
+  profiles: dev
+  application:
+    name: solben-backend
+  datasource:
+    url: jdbc:oracle:thin:@dboracleaunadev.cvpn2k1pcgnm.us-east-2.rds.amazonaws.com:1521:AUNA
+    username: ONTPAC
+    password: ONTPAC
+
+server:
+  port: ${vcap.application.port:8080}
+  contextPath: /solben
+  session:
+    cookie:
+      name: UISESSION
+
+oncosys:
+  oncoAfiliado: http://52.206.87.238:8080/oncosys-backend/afiliado
+  oncoGenerico: http://52.206.87.238:8080/oncosys-backend/generico
+  oncoDiagnostico: http://52.206.87.238:8080/oncosys-backend/diagnostico
+  oncoMedico: http://52.206.87.238:8080/oncosys-backend/medico
+portalComun:
+   oauth2: http://52.206.87.238:8080/oauth2-server/oauth
+
+auna:
+  fcompleja:
+    datasource:
+      url: jdbc:oracle:thin:@dboracleaunadev.cvpn2k1pcgnm.us-east-2.rds.amazonaws.com:1521:AUNA
+      username: ONTPFC
+      password: ONTPFC
+      #jndi-name: java:/farmaciaComplejaDS
+      #driver-class-name: oracle.jdbc.driver.OracleDriver
+
+---
+
+spring:
+  profiles: qa
+  application:
+    name: solben-backend
+  datasource:
+    jndi-name: java:/ONTPFCNoXADS
+
+server:
+  port: ${vcap.application.port:8080}er/oauth
+
+
+
+  contextPath: /solben
+  session:
+    cookie:
+      name: UISESSION
+
+oncosys:
+  oncoAfiliado: http://10.41.190.223:8080/oncosys-backend/afiliado
+  oncoGenerico: http://10.41.190.223:8080/oncosys-backend/generico
+  oncoDiagnostico: http://10.41.190.223:8080/oncosys-backend/diagnostico
+  oncoMedico: http://10.41.190.223:8080/oncosys-backend/medico
+portalComun:
+  oauth2: http://10.41.190.223:8080/oauth2-serv
